@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/lfborjas/Development/mitivi/config'
-let g:netrw_dirhist_2='/home/lfborjas/.vim/ftdetect'
-let g:netrw_dirhist_3='/home/lfborjas/workspace/miitup/static'
-let g:netrw_dirhist_4='/home/lfborjas/.vim'
-let g:netrw_dirhist_5='/etc/apache2/sites-available'
-let g:netrw_dirhist_6='/home/lfborjas/workspace/rant/src'
-let g:netrw_dirhist_7='/home/lfborjas/workspace/pivotime/config'
