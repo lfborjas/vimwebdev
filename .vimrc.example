@@ -1,3 +1,9 @@
+set nocompatible
+"somehow, upgrading to vim73 screwed the syntax highlighting
+syntax on
+filetype on
+filetype indent on
+filetype plugin on
 set tabstop=4
 set shiftwidth=4
 set smarttab
@@ -7,9 +13,26 @@ set autoindent
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 map <F2> :NERDTreeToggle<CR>
-"when pasting external text, deactivate smarttab (so it doesn't look like crap when pasted)
 set pastetoggle=<F3>
 "autocmd FileType python set omnifunc=pysmell#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-"use omnicompletion with ctrl+space instead of ctrl+x + crtl+o
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
 inoremap <Nul> <C-x><C-o>
+"when upgrading to vim73, the backspace died
+"here's a solution: http://vim.wikia.com/wiki/Backspace_and_delete_problems
+func Backspace()
+  if col('.') == 1
+    if line('.')  != 1
+      return  "\<ESC>kA\<Del>"
+    else
+      return ""
+    endif
+  else
+    return "\<Left>\<Del>"
+  endif
+endfunc
+inoremap <BS> <c-r>=Backspace()<CR>
+"to enable ruby omnicompletion (cf.  :help ft-ruby-omni)
+autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby let g:rubycomplete_rails = 1
