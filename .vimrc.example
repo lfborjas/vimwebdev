@@ -57,3 +57,5 @@ set nobackup
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=htmldjango.html " For SnipMate
 
+"to see column/line numbers
+set ruler
