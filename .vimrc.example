@@ -19,7 +19,8 @@ set pastetoggle=<F3>
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType ruby set omnifunc=rubycomplete#Complete
 autocmd FileType java set omnifunc=javacomplete#Complete
-
+au BufNewFile,BufRead *.mustache        setf mustache
+au BufNewFile,BufRead *.thor            setf ruby
 inoremap <Nul> <C-x><C-o>
 "when upgrading to vim73, the backspace died
 "here's a solution: http://vim.wikia.com/wiki/Backspace_and_delete_problems
@@ -56,6 +57,7 @@ set nobackup
 "for snipmate:
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=htmldjango.html " For SnipMate
-
+autocmd FileType ejs set ft=erb
 "to see column/line numbers
 set ruler
+autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.scm
